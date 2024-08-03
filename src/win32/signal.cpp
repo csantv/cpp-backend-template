@@ -2,19 +2,12 @@
 #include "application.hpp"
 
 #include <Windows.h>
-#include <iostream>
 
-BOOL WINAPI console_handler(const DWORD signal) {
-    if (signal == CTRL_C_EVENT || signal == CTRL_CLOSE_EVENT) {
-        Application::stop();
-        return TRUE;
-    }
-    return FALSE;
+BOOL WINAPI console_handler([[maybe_unused]] DWORD signal) {
+    Application::stop();
+    return TRUE;
 }
 
 void signal::setup_handlers() {
-    std::cout << "bruh" << std::endl;
-    if (!SetConsoleCtrlHandler(console_handler, TRUE)) {
-        std::cout << "could not setup console handlers" << std::endl;
-    }
+    SetConsoleCtrlHandler(console_handler, TRUE);
 }
