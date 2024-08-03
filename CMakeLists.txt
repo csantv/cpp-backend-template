@@ -4,7 +4,7 @@ project(cpp_backend_template)
 add_executable(backend)
 
 set_target_properties(backend PROPERTIES
-    CXX_STANDARD 20
+    CXX_STANDARD 23
     CXX_EXTENSIONS OFF
     INTERPROCEDURAL_OPTIMIZATION ON
     EXPORT_COMPILE_COMMANDS ON
@@ -31,3 +31,4 @@ target_sources(backend PRIVATE
 target_include_directories(backend PRIVATE include/)
 target_include_directories(backend SYSTEM PRIVATE third_party/)
 target_link_libraries(backend PRIVATE usockets PkgConfig::ZLIB)
+target_compile_definitions(backend PRIVATE SPDLOG_USE_STD_FORMAT)
