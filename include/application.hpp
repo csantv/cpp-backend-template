@@ -6,6 +6,7 @@
 class Application {
 public:
     static void run();
+    static void stop();
 
     inline static uWS::App app;
 };

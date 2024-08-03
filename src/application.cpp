@@ -11,3 +11,7 @@ void Application::run() {
         }
     }).run();
 }
+
+void Application::stop() {
+    uWS::App old_app(app.close());
+}
