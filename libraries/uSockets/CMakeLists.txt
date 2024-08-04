@@ -17,7 +17,7 @@ file(GLOB_RECURSE usockets_SRC "*.c" "*.h" "*.cpp")
 target_sources(usockets PRIVATE ${usockets_SRC})
 target_include_directories(usockets PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 target_compile_definitions(usockets PRIVATE LIBUS_USE_OPENSSL)
-target_link_libraries(usockets PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+target_link_libraries(usockets PRIVATE OpenSSL::SSL)
 
 if (WIN32)
     include(FindPkgConfig)

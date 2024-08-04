@@ -7,7 +7,9 @@ class Application {
 public:
     static void run();
     static void stop();
-    static void listen_handler(us_listen_socket_t *listen_socket);
+    static void setup_signals();
+
+    static void listen_handler(const us_listen_socket_t *listen_socket);
 
     inline static uWS::App server;
 

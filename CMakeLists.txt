@@ -17,15 +17,14 @@ pkg_check_modules(ZLIB REQUIRED zlib IMPORTED_TARGET)
 add_subdirectory(libraries/uSockets)
 
 if (WIN32)
-    target_sources(backend PRIVATE src/win32/signal.cpp)
+    target_compile_definitions(backend PRIVATE OS_WINDOWS)
 elseif (UNIX)
-    target_sources(backend PRIVATE src/unix/signal.cpp)
+    target_compile_definitions(backend PRIVATE OS_UNIX)
 endif ()
 
 target_sources(backend PRIVATE
     src/main.cpp
     include/application.hpp
-    include/signal.hpp
     src/application.cpp
 )
 target_include_directories(backend PRIVATE include/)
